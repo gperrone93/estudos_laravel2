@@ -31,8 +31,11 @@
                     <div class="graph_header">
                         <h2>Progresso do dia</h2>
                         <div class="graph_header-line"></div>
+
                         <div class="graph_header-date">
-                            Data
+                            <img src="/assets/images/icon-prev.png">
+                                12 de Dez
+                            <img src="/assets/images/icon-next.png">
                         </div>
                     </div>
                     <div class="graph_header-subtitle">

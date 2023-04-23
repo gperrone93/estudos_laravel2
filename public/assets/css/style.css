@@ -52,6 +52,11 @@ nav{
 .btn {
     padding: 20px 30px;
     border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 a.btn {
@@ -66,13 +71,14 @@ a.btn {
 
 main {
     display: flex;
-    padding:20px;
+    padding: 0;
+
 }
 
 section.graph {
     width: 33%;
     height: 100%;
-    padding: 5px;
+    padding: 20px 20px 0 20px;
 }
 .graph_header{
     display: flex;
@@ -95,6 +101,7 @@ section.graph {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 10px;
 }
 .graph_header-subtitle{
     margin-top: 10px;
@@ -116,14 +123,15 @@ section.graph {
     margin-top: 50px;
 }
 .list{
-    padding: 5px 15px;
+    padding: 20px 20px 0 20px;
     flex:1;
 }
 .list_header{
     display: flex;
 }
 .list_header-select{
-
+    background-color: transparent;
+    border:0;
 }
 .tast_list{
     display: flex;
@@ -139,9 +147,13 @@ section.graph {
     padding: 30px 15px;
     border-bottom: 1px solid var(--background-light);
     margin-bottom: 10px;
+    transition: all .3s ease-in-out;
 }
 .task:hover{
     background-color: var(--background-light) ;
+    transform: scale(1.05);
+    border-radius: 10px;
+    overflow: hidden;
 }
 .title {
     display: flex;
@@ -163,6 +175,10 @@ section.graph {
 .action a {
     margin-left: 20px;
     margin-right: 10px;
+    transition: all .3s ease-in-out;
+}
+.action a:hover{
+    transform:scale(1.5) ;
 }
 .sphere {
     width: 22px;
