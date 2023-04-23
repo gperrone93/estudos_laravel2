@@ -1,4 +1,14 @@
-<x-layout>
+<x-layout page="Dashboard">
+
+
+    <x-slot name="btn">
+        <a href="{{route('task.create')}}" class="btn btn-primary">
+            Criar Tarefa
+        </a>
+
+    </x-slot>
+
+
     <section class="graph">
         <div class="graph_header">
             <h2>Progresso do dia</h2>
@@ -31,24 +41,10 @@
             </select>
         </div>
         <div class="tast_list">
-            <div class="task">
-                <div class="title">
-                    <input type="checkbox"/>
-                    <div class="task_title"> Titulo da Tarefa </div>
-                </div>
-                <div class="priority">
-                    <div class="sphere"> </div>
-                    <div class=""> Titulo da Tarefa </div>
-                </div>
-                <div class="action">
-                    <a href="">
-                        <img src="/assets/images/icon-edit.png" />
-                    </a>
-                    <a href="">
-                        <img src="/assets/images/icon-delete.png" />
-                    </a>
-                </div>
-            </div>
+
+            @foreach($tasks as $task)
+                <x-task :data=$task ></x-task>
+            @endforeach
         </div>
     </section>
 </x-layout>

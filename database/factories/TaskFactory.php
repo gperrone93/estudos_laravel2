@@ -23,6 +23,7 @@ class TaskFactory extends Factory
 
         return [
             'title' => $this->faker->text(30),
+            'is_done' => $this->faker->boolean(),
             'description' => $this->faker->text(60),
             'due_date' => $this->faker->dateTime(),
             'user_id' => $user,
