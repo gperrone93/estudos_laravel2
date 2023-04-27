@@ -6,6 +6,10 @@
             Criar Tarefa
         </a>
 
+        <a href="{{route('logout')}}" class="btn btn-primary">
+            Sair
+        </a>
+
     </x-slot>
 
 
@@ -47,4 +51,27 @@
             @endforeach
         </div>
     </section>
+
+    <script>
+        async function taskUpdate(element){
+            let status = element.checked;
+            let taskId = element.dataset.id;
+            let url = '{{route('task.update')}}'
+
+            let rawResult = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-type' : 'application/json',
+                    'accept' : 'pplication/json'
+                },
+                body: json.stringify({status, taskId})
+            });
+            result = await result.json();
+            console.log(result);
+
+        }
+    </script>
+
 </x-layout>
+
+

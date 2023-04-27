@@ -11,12 +11,23 @@ class AuthController extends Controller
 {
     public function index(Request $r)
     {
-        //dd(Auth::user());
+        if(Auth::check()) {
+            return redirect()->route('home');
+        }
         return view('login');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 
     public function register(Request $r)
     {
+        if(Auth::check()) {
+            return redirect()->route('home');
+        }
         return view('register');
     }
 
