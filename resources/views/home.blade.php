@@ -19,9 +19,13 @@
             <div class="graph_header-line"></div>
 
             <div class="graph_header-date">
-                <img src="/assets/images/icon-prev.png">
-                12 de Dez
-                <img src="/assets/images/icon-next.png">
+
+                <a href="{{ route('home', ['date' => $data['date_prev_button'] ]) }}"> <img src="/assets/images/icon-prev.png"> </a>
+
+                {{ $data['date_as_string'] }}
+
+                <a href="{{ route('home', ['date' => $data['date_next_button'] ]) }}"> <img src="/assets/images/icon-next.png"> </a>
+
             </div>
         </div>
         <div class="graph_header-subtitle">
@@ -46,7 +50,7 @@
         </div>
         <div class="tast_list">
 
-            @foreach($tasks as $task)
+            @foreach($data['tasks'] as $task)
                 <x-task :data=$task ></x-task>
             @endforeach
         </div>
@@ -64,11 +68,14 @@
                     'Content-type' : 'application/json',
                     'accept' : 'pplication/json'
                 },
-                body: json.stringify({status, taskId})
+                body: JSON.stringify({status, taskId, _token: '{{ csrf_token() }}'})
             });
-            result = await result.json();
-            console.log(result);
 
+            if(result.success) {
+                alert('Task Atualizada');
+            }else {
+                element.status = !element.status;
+            }
         }
     </script>
 
